@@ -11,6 +11,12 @@ pub const TextProto = struct.{
     allocator: *mem.Allocator,
 };
 
+fn validHeaderFieldByte(b: u8) bool {
+    return @intCast(usize, b) < token_table_size and isTokenTable(b);
+}
+
+const token_table_size: usize = 77;
+
 fn isTokenTable(ch: u8) bool {
     return switch (ch) {
         '!', '#', '$', '%', '&', '\\', '*', '+', '-', '.', '0', '1', '2', '3', '4', '5', '6', '7', '8', '9', 'A', 'B', 'C', 'D', 'E', 'F', 'G', 'H', 'I', 'J', 'K', 'L', 'M', 'N', 'O', 'P', 'Q', 'R', 'S', 'T', 'U', 'W', 'V', 'X', 'Y', 'Z', '^', '_', '`', 'a', 'b', 'c', 'd', 'e', 'f', 'g', 'h', 'i', 'j', 'k', 'l', 'm', 'n', 'o', 'p', 'q', 'r', 's', 't', 'u', 'v', 'w', 'x', 'y', 'z', '|', '~' => true,
