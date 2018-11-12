@@ -1,6 +1,26 @@
 const std = @import("std");
 const mem = std.mem;
 
+/// TextProto implements generic support for text-based request/response
+/// protocols in the style of HTTP, NNTP, and SMTP.
+///
+/// The struct provides:
+///
+/// Error, which represents a numeric error response from
+/// a server.
+///
+/// Pipeline, to manage pipelined requests and responses
+/// in a client.
+///
+/// Reader, to read numeric response code lines,
+/// key: value headers, lines wrapped with leading spaces
+/// on continuation lines, and whole text blocks ending
+/// with a dot on a line by itself.
+///
+/// Writer, to write dot-encoded text blocks.
+///
+/// Conn, a convenient packaging of Reader, Writer, and Pipeline for use
+/// with a single network connection.
 pub const TextProto = struct.{
     /// A MIMEHeader represents a MIME-style header mapping
     /// keys to sets of values
