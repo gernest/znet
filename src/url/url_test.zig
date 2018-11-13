@@ -4,7 +4,7 @@ const assert = std.debug.assert;
 const mem = std.mem;
 const debug = std.debug;
 
-const EscapeTest = struct{
+const EscapeTest = struct {
     in: []const u8,
     out: []const u8,
     err: ?url.Error,
