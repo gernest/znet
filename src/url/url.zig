@@ -225,7 +225,7 @@ fn escape(a: *std.Buffer, s: []const u8, mode:encoding) !void{
 //
 // The general form represented is:
 //
-//	[scheme:][//[userinfo@]host][/]path[?query][#fragment]
+//[scheme:][//[userinfo@]host][/]path[?query][#fragment]
 //
 // URLs that do not start with a slash after the scheme are interpreted as:
 //
